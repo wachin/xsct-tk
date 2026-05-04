@@ -33,7 +33,7 @@ class AboutWindow(tk.Toplevel):
 
         text.insert(tk.END, "Para más información, visite: \n\n", "italic")
         text.insert(tk.END, "xsct_gui una GUI para xsct\n")
-        text.insert(tk.END, "https://github.com/wachin/xsct_gui\n\n")
+        text.insert(tk.END, "https://github.com/wachin/xsct_tk\n\n")
         text.insert(tk.END, "Xsct (X11 set color temperature)\n")
         text.insert(tk.END, "https://github.com/faf0/sct\n\n")
 
