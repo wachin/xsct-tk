@@ -45,7 +45,7 @@ As of 2025, these desktop environments still support X11 sessions:
 Before using `xsct_tk`, make sure you have these installed (open a terminal and run):
 
 ```bash
-sudo apt install python3 python3-tk xsct python3-pil.imagetk python3-cairosvg python3-pyqt6.qtsvg
+sudo apt install python3 python3-tk xsct python3-pil.imagetk python3-cairosvg papirus-icon-theme
 ```
 
 The following is a table with the description of each one
@@ -129,7 +129,7 @@ cd xsct_tk
 run with:
 
 ```bash
-python xsct_tk.py  
+python3 xsct_tk.py  
 ```
 
 ## Run with launcher
@@ -155,8 +155,8 @@ On some Linux like MX Linux you can right click on the `xsct_tk.py` file and ope
 
 📌 Move the slider to choose your preferred color.
 
-### 2. 💡 Brightness (0.200 to 1.000)
-- **Left (0.200)**: Very dim → great for dark rooms.
+### 2. 💡 Brightness (0.300 to 1.000)
+- **Left (0.300)**: Very dim → great for dark rooms.
 - **Right (1.000)**: Full brightness → best in bright environments.
 
 📌 Adjust the slider to set your desired brightness.
@@ -167,7 +167,7 @@ On some Linux like MX Linux you can right click on the `xsct_tk.py` file and ope
 
 ✅ **Yes!** As soon as you move a slider, the change takes effect immediately.
 
-You can also click the **"About..."** button to see information about the program.
+You can also click the **"Acerca de..."** button to see information about the program.
 
 ---
 

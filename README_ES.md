@@ -1,29 +1,33 @@
-# 🌙  xsct_gui
+# 🌙  xsct_tk
 
-## 🌙 xsct_gui – Fácil control de la luz de tu pantalla, para X11 Window Manager
+[![Topic](https://img.shields.io/badge/topic-linux%20x11%20gui-blueviolet)](https://github.com/topics/linux)
 
-Este programa te ayuda a **cambiar el color y el brillo de tu pantalla** en Linux, para que sea más cómoda de ver, especialmente por la noche. 
+[READ IN ENGLISH](README.md)
 
-Es como agregar un “filtro de luz cálida” (similar al modo nocturno de tu teléfono que reduce la lúz azúl) para reducir la fatiga visual y hacer que el uso de pantallas a altas horas de la noche sea más llevadero para tus ojos.
+## 🌙  xsct_tk – Fácil control de la luz de tu pantalla, para X11 Window Manager
 
-`xsct_gui` es una interfáz gráfica para [xsct](https://github.com/faf0/sct), una pequeña herramienta de línea de comandos que cambia la temperatura de color de la pantalla usando `xrandr`.
+Este programa te ayuda a **ajustar el color y el brillo de tu pantalla** en Linux, para que sea más cómoda de ver, especialmente por la noche.
+
+Es como agregar un "filtro de luz cálida" (similar al modo nocturno de tu teléfono que reduce la luz azul) para reducir la fatiga visual y hacer que el uso de pantallas a altas horas de la noche sea más llevadero para tus ojos.
+
+`xsct_tk` es una **interfaz gráfica** para [xsct](https://github.com/faf0/sct), una pequeña herramienta de línea de comandos que cambia la temperatura de color de la pantalla usando `xrandr`.
 
 ---
 
 ## 🎯 ¿Qué hace este programa?
 
 - 🔆 **Ajusta el color de la pantalla**: Puedes hacerla más naranja (cálida) o más blanca (fría).
-- 💡 **Cambia el brillo**: Puedes hacerla más oscura o más clara.
+- 💡 **Controla el brillo**: Puedes hacerla más oscura o más clara.
 - 🖱️ Todo con una **interfaz sencilla y fácil de usar**, con barras deslizantes.
 
-> ✅ Ideal para usar de noche, estudiando o trabajando en la computadora. Trata de que el color de la pantalla se asemeje al de tu cuarto, que por cierto en la noche es mejor que uses un tipo de foco o iluminación que no tenga mucha luz azúl
+✅ Ideal para usar de noche, estudiando o trabajando en la computadora.  
+💡 Trata de que el color de la pantalla se asemeje al de tu cuarto, y evita luces con mucha luz azul por la noche.
 
 ---
 
-## 💻 El Sistema Operativo que necesitas
+## El Sistema Operativo que necesitas
 
-Necesitará un sistema Linux con el **Gestor de Ventanas X11** (no Wayland).
-
+Necesitarás un sistema Linux con el **Gestor de Ventanas X11** (no Wayland).  
 A partir de 2025, estos entornos de escritorio aún admiten sesiones X11:
 
 - GNOME
@@ -32,230 +36,210 @@ A partir de 2025, estos entornos de escritorio aún admiten sesiones X11:
 - XFCE
 - LXQt
 - LXDE
-- Openbox, Fluxbox, JWM y otros gestores de ventanas X11
+- openbox, fluxbox, jwm y otros gestores de ventanas X11
 
-> ❗ Esta herramienta **no funciona en Wayland**. Asegúrese de iniciar sesión con una sesión X11.
+> ❗ Esta herramienta **no funciona en Wayland**. Asegúrate de iniciar sesión con una sesión X11.
 
-### ✅ Software requerido
+### Software requerido
 
-Antes de usar `xsct_gui`, asegúrese de tener estos instalados (abre una terminal y ejecuta):
+Antes de usar `xsct_tk`, asegúrate de tener estos instalados (abre una terminal y ejecuta):
 
 ```bash
-sudo apt install python3 git python3-tk xsct python3-pil.imagetk python3-cairosvg
+sudo apt install python3 python3-tk xsct python3-pil.imagetk python3-cairosvg papirus-icon-theme
 ```
 
-la siguiente es una tabla con la descripción de cada uno
+La siguiente es una tabla con la descripción de cada uno:
 
 |              Programa              |                       ¿Para qué sirve?                       |
 | ---------------------------------- | ------------------------------------------------------------ |
-| **Python 3**                       | Es el lenguaje en el que está hecho el programa.             |
-| **Tkinter** (`python3-tk`)         | Sirve para mostrar la ventana y botones.                     |
-| **Pillow** (`python3-pil.imagetk`) | Permite mostrar colores bonitos en las barras.               |
-| **CairoSVG** (`python3-cairosvg`)  | Necesario para ver el ícono del programa.                    |
-| **xsct**                           | Es el programa que realmente cambia el color de tu pantalla. |
-| **Papirus Icon Theme**             | Da el ícono bonito a la ventana.                             |
+| **Python 3**                       | El lenguaje de programación en el que está hecho el programa.|
+| **Tkinter** (`python3-tk`)         | Crea la ventana y los botones (kit de herramientas GUI).     |
+| **Pillow** (`python3-pil.imagetk`) | Muestra las barras de degradado de colores.                  |
+| **CairoSVG** (`python3-cairosvg`)  | Permite mostrar íconos SVG (como el ícono de la aplicación). |
+| **xsct**                           | La herramienta que realmente cambia el color de tu pantalla. |
+| **Papirus Icon Theme**             | Proporciona un ícono bonito a la ventana.                    |
 
+> 📝 Si usas **Debian 11 (bullseye)** o **Debian 10 (buster)**, `xsct` no está disponible. Deberás compilarlo manualmente (ver instrucciones al final).
 
-## 🐧 Soporte de distribución de Linux
+---
 
-### Ubuntu
-Si usas Ubuntu y sus sabores, en los que se pueda iniciar sesión con X11, esos paquetes están en los repositorios desde:
+## 🐧 Soporte de distribuciones Linux
 
-- [https://packages.ubuntu.com/xsct](https://packages.ubuntu.com/xsct) **Desde noble (24.04LTS)**
-- [https://packages.ubuntu.com/papirus-icon-theme](https://packages.ubuntu.com/papirus-icon-theme) Desde jammy (22.04LTS)
-- [https://packages.ubuntu.com/python3](https://packages.ubuntu.com/python3) Desde jammy (22.04LTS)
-- [https://packages.ubuntu.com/python3-tk](https://packages.ubuntu.com/python3-tk) Desde jammy (22.04LTS)  
-- [https://packages.ubuntu.com/python3-pil.imagetk](https://packages.ubuntu.com/python3-pil.imagetk) Desde jammy (22.04LTS) 
+### Ubuntu (y sabores como Kubuntu, Xubuntu, etc.)
+Si usas Ubuntu y sus sabores que admiten inicio de sesión con X11, esos paquetes están disponibles en los repositorios:
+
+- [https://packages.ubuntu.com/xsct](https://packages.ubuntu.com/xsct) **Desde Noble (24.04LTS)**
+- [https://packages.ubuntu.com/papirus-icon-theme](https://packages.ubuntu.com/papirus-icon-theme) Desde Jammy (22.04LTS)
+- [https://packages.ubuntu.com/python3](https://packages.ubuntu.com/python3) Desde Jammy (22.04LTS)
+- [https://packages.ubuntu.com/python3-tk](https://packages.ubuntu.com/python3-tk) Desde Jammy (22.04LTS)
+- [https://packages.ubuntu.com/python3-pil.imagetk](https://packages.ubuntu.com/python3-pil.imagetk) Desde jammy (22.04LTS)
 - [https://packages.ubuntu.com/python3-cairosvg](https://packages.ubuntu.com/python3-cairosvg) Desde jammy (22.04LTS)
 
-**Nota:** Linux Mint está basado en Ubuntu, puede que allí también tengan estos paquetes esos nombres.
+📌 **Nota:** Linux Mint está basado en Ubuntu, por lo que estos paquetes pueden tener los mismos nombres allí.
 
+### Debian (y derivados como MX Linux, antiX)
+Si usas Debian y sus derivados como MX Linux, antiX, etc., donde puedes iniciar sesión con X11, esos paquetes están disponibles en los repositorios:
 
-### Debian
-Si usas Debian y sus derivados como MX Linux, antiX, etc, en los que se pueda iniciar sesión con X11, esos paquetes están en los repositorios desde:
- 
-* [https://packages.debian.org/xsct](https://packages.debian.org/xsct) **desde Debian 12** 
-* [https://packages.debian.org/papirus-icon-theme](https://packages.debian.org/papirus-icon-theme) Desde Debian 10 
-* [https://packages.debian.org/python3](https://packages.debian.org/python3) Desde Debian 10 
-* [https://packages.debian.org/python3-tk](https://packages.debian.org/python3-tk) Desde Debian 10  
-* [https://packages.debian.org/python3-pil.imagetk](https://packages.debian.org/python3-pil.imagetk) Desde Debian 10 
-* [https://packages.debian.org/python3-cairosvg](https://packages.debian.org/python3-cairosvg) Desde Debian 10 
+* [https://packages.debian.org/xsct](https://packages.debian.org/xsct) **desde Debian 12**
+* [https://packages.debian.org/papirus-icon-theme](https://packages.debian.org/papirus-icon-theme) desde Debian 10
+* [https://packages.debian.org/python3](https://packages.debian.org/python3) desde Debian 10
+* [https://packages.debian.org/python3-tk](https://packages.debian.org/python3-tk) desde Debian 10
+* [https://packages.debian.org/python3-pil.imagetk](https://packages.debian.org/python3-pil.imagetk) Desde Debian 10
+* [https://packages.debian.org/python3-cairosvg](https://packages.debian.org/python3-cairosvg) Desde Debian 10
 
-**Nota:** MX Linux 23, antiX 23 y otros están basados en Debian 12
+📌 **Nota:** MX Linux 23, antiX 23 y otros están basados en Debian 12
 
 ---
 
 ## ▶️ Cómo usar el programa
-
-Lo primero es tener el programa en una carpeta en el ordenador con Linux
+Lo primero es tener el programa en una carpeta en tu ordenador con Linux
 
 ### **1era OPCIÓN: Descargar el repositorio**
+Ve al sitio web:
 
-Diríjase al sitio web:
+[https://github.com/wachin/xsct_tk](https://github.com/wachin/xsct_tk)
 
-[https://github.com/wachin/xsct_gui](https://github.com/wachin/xsct_gui)
-
-de clic en la especie de flecha abajo en Code:
+haz clic en la especie de flecha desplegable en Code:
 
 **<>  Code ▼**
 
-y clic en:
+y haz clic en:
 
 **Download ZIP**
 
-descompríme, y allí dentro de la carpeta está el archivo `Launcher.sh`
-
+descomprímelo, y dentro de la carpeta encontrarás el archivo `Launcher.sh`
 o puedes clonarlo:
 
-### **2da OPCIÓN: Clona el repositorio**
+### **2da OPCIÓN: Clonar el repositorio**
 
-**1.-** Como ya tenemos instalado a git poner en una terminal en una carpeta donde tenga programas de Linux:
+**1.-** Como ya tenemos git instalado, abre una terminal en una carpeta donde tengas programas de Linux:
 
 ```bash
-git clone https://github.com/wachin/xsct_gui  
+git clone https://github.com/wachin/xsct_tk  
 ```
+
 y entra allí con:
 
 ```bash
-cd xsct_gui  
+cd xsct_tk  
 ```
 
-## Ejecutando con Launcher.sh
+## Ejecutar
 
-Asegúrate que el script `Launcher.sh`está como ejecutable, en el administrador de archivos dele clic derecho y en la pestaña "**Permisos**" asegúrese de que "**es ejecutable**"
+ejecuta con:
 
-Dele doble clic al script `Launcher.sh` y clic en `Ejecutar`
+```bash
+python3 xsct_tk.py  
+```
+
+## Ejecutar con el lanzador
+
+Alternativamente, ejecuta con el lanzador: asegúrate de que el script `Launcher.sh` sea ejecutable. En el administrador de archivos, haz clic derecho y en la pestaña "**Permisos**" asegúrate de que "**es ejecutable**".
+Haz doble clic en el script `Launcher.sh` y haz clic en `Ejecutar`.
 
 👉 Se abrirá una ventana con dos controles:
 
 ![](https://blogger.googleusercontent.com/img/a/AVvXsEixMsvdzTpTY5ENvil5n1a9KoIlz3rWyYkq1qlxnS4OPN_47wJmk5uBqhvM1PZu0fhNqgRf8_ttnMRlyjxns5iyFEBqZ8CIiLk22lq6Ak86gAa0O9tOxqeIrjOOQKI1WHKq4JS-2_5tvUZPZNWLCeNrnDjh-9xw2fvz54a56Rvnc9R_59TVd8EEWi7aLdc=s16000-rw)
 
-### Abrir el programa con python con `python3 xsct_gui.py`
+# Ejecutar con el lanzador de Python
 
-**1.-** **Abre una terminal**
-**2.-** **Ve a la carpeta** donde está el archivo `xsct_gui.py`, o abre una terminal allí desde tu administrador de archivos
-**3.-** **Ejecuta el programa** con este comando:
-
-```bash
-python3 xsct_gui.py
-```
-
-👉 Se abrirá una ventana con dos controles
+En algunos Linux como MX Linux puedes hacer clic derecho en el archivo `xsct_tk.py` y abrirlo con el lanzador de Python.
 
 ---
 
 ## 🎛️ Controles de la interfaz
 
 ### 1. 🌡️ Temperatura de color (de 2000K a 6500K)
+- **Izquierda (2000K)**: tono naranja cálido → ideal para la noche.
+- **Derecha (6500K)**: tono blanco frío → ideal para el día.
 
-- **Izquierda (2000K)**: color naranja cálido → ideal para la noche.
-- **Derecha (6500K)**: blanco brillante → ideal para el día.
+📌 Mueve el deslizador para elegir el color que prefieras.
 
-> 📌 Mueve el deslizador para elegir el color que más te guste.
+### 2. 💡 Brillo (de 0.300 a 1.000)
+- **Izquierda (0.300)**: muy oscuro → ideal para habitaciones oscuras.
+- **Derecha (1.000)**: brillo máximo → ideal para ambientes luminosos.
 
----
-
-### 2. 💡 Brillo (de 0.200 a 1.000)
-
-- **Izquierda (0.200)**: muy oscuro → buenísimo para la oscuridad.
-- **Derecha (1.000)**: brillo máximo → para ambientes claros.
-
-> 📌 Mueve el deslizador para ajustar el brillo.
+📌 Ajusta el deslizador para establecer el brillo deseado.
 
 ---
 
-## 🔄 ¿Los cambios se aplican solos?
+## 🔁 ¿Los cambios se aplican automáticamente?
 
-¡Sí! Cada vez que mueves una barra, el cambio se aplica **automáticamente**.
+✅ **¡Sí!** En cuanto mueves un deslizador, el cambio se aplica de inmediato.
 
-También puedes hacer clic en el botón **"Acerca de..."** para ver información del programa.
+También puedes hacer clic en el botón **"Acerca de..."** para ver información sobre el programa.
 
 ---
 
-## 💡 Consejos para usarlo bien
+## 💡 Consejos para mejores resultados
 
-| Situación | Recomendación |
-|---------|----------------|
-| 🌙 **De noche o en una habitación oscura** | Usa **3000K – 4000K** de temperatura y **0.700 – 0.800** de brillo. |
-| ☀️ **Durante el día o con luz natural** | Usa **5500K – 6500K** y brillo al máximo (**1.000**). |
-| 👀 **Si te duelen los ojos** | Prueba con más naranja y menos brillo. |
+|           Situación           |                  Configuración recomendada                  |
+| ----------------------------- | ------------------------------------------------------------ |
+| 🌙 **De noche o en habitación oscura** | Temperatura 3000K – 4000K, brillo 0.700 – 0.800   |
+| ☀️ **Durante el día o con luz natural** | Temperatura 5500K – 6500K, brillo 1.000           |
+| 👀 **Ojos cansados**          | Prueba con color más cálido y menos brillo                   |
 
-> 🔎 **Experimenta** hasta encontrar la combinación que más cómoda te parezca, además según el cuarto y el tipo de foco donde estés.
+🔍 **¡Experimenta!** Encuentra la combinación que mejor se adapte a tus ojos y a la iluminación de tu cuarto.
 
 ---
 
 ## 🛠️ ¿Puedo modificar el programa?
 
-¡Claro! Este programa está hecho en **Python** y puedes abrir el archivo `xsct_gui.py` con cualquier editor de texto (como **Geany**, **Thonny** o **Mousepad**) para ver cómo funciona o cambiar colores, mensajes, etc.
+¡Claro! El programa está escrito en **Python**, así que puedes abrir `xsct_tk.py` en cualquier editor de texto (como **Geany**, **Thonny** o **Mousepad**) para:
+- Cambiar colores
+- Editar etiquetas
+- Agregar nuevas funciones
 
-> 📚 Es un buen ejemplo para aprender sobre interfaces gráficas con **Tkinter**.
+📚 ¡Ideal para aprender **programación de interfaces gráficas con Tkinter** en Python!
 
 ---
 
 ## 📚 Más información
 
-- 🐍 Código del programa GUI: [https://github.com/wachin/xsct_gui](https://github.com/wachin/xsct_gui)
-- ⚙️ El programa CLI "xsct": [https://github.com/faf0/sct](https://github.com/faf0/sct)
+- 🐍 **Código fuente de la GUI**: [https://github.com/wachin/xsct_tk](https://github.com/wachin/xsct_tk)
+- ⚙️ **xsct (herramienta de línea de comandos)**: [https://github.com/faf0/sct](https://github.com/faf0/sct)
 
 ---
 
 ## 🙌 Sobre este programa
 
-Este programa fue creado por **Washington Indacochea Delgado**, con licencia libre **GNU GPL3**
+Creado por **Washington Indacochea Delgado**
+Licencia: **GNU GPL3** (libre y de código abierto)
 
-> ✨ ¡Gracias por usarlo!  
-> Que tu pantalla sea siempre cómoda para tus ojos. 👀💙
-
----
-
-> 📝 Nota: Si usas una versión antigua de Debian (como Buster), puede que debas cambiar `xsct` por `sct` en el código. Pero en Debian 12 y MX Linux 23, todo funciona sin problemas.
+✨ ¡Gracias por usar `xsct_tk`!  
+Que tu pantalla siempre sea cómoda para tus ojos. 👀💙
 
 ---
 
-✅ Listo. Ahora ya sabes cómo usar `xsct_gui`.  
-¡Abre la terminal y prueba cambiar el color de tu pantalla especialmente en la noche! 🌈🖥️
+## 📝 Notas
 
-# Para Instalar en Debian 11 bullseye, Debian 10 buster, compilar sct
-Necesitamos las siguientes dependencias para poder compilar el código fuente y que se pueda instalar xsct en Debian 11, 10:
+- En **versiones antiguas de Debian** (como Buster o Bullseye), `xsct` no está disponible. Deberás compilarlo manualmente:
 
 ```bash
+# Instalar dependencias de compilación
 sudo apt install libx11-dev libxrandr-dev
-```
-Luego, clone el repositorio de xsct:
 
-```bash
+# Clonar y compilar xsct
 git clone https://github.com/faf0/sct
-```
-y entre allí
-```bash
 cd sct
-```
-y compilelo:
-
-```bash
 make
-```
-
-no se demora mucho en compilar, es rapidísimo, e instálelo:
-
-```bash
 sudo make install
 ```
-y se instalará
 
-## Dependencias para xsct_gui en Debian 11, 10
-1. Para usar la interfáz gráfica para xsct necesitamos instalar:
+Luego instala las dependencias de la GUI:
 ```bash
 sudo apt install python3 python3-tk python3-pil.imagetk python3-cairosvg
 ```
-y ahora si:
 
-2. Navega hasta el directorio donde guardaste el archivo `xsct_gui.py`.
-3. Ejecuta el siguiente comando:  
-
-```python
-python3 xsct_gui.py
+Ahora ejecuta:
+```bash
+python3 xsct_tk.py
 ```
 
-> 🙏 Dios les bendiga
+---
 
+✅ ¡Todo listo!  
+Ahora prueba cambiar el color de tu pantalla, ¡especialmente de noche! 🌈🖥️  
+¡Disfruta de una experiencia informática más cómoda!
+
+> 🙏 Dios les bendiga.
